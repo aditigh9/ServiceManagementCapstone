@@ -1,0 +1,66 @@
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+/* Grid layout */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Base card style */
+.card {
+  background: rgb(247, 250, 213);
+  padding: 20px;
+  border-radius: 14px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.card span {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Left color bars */
+.card.total {
+  border-left: 6px solid #6366f1; 
+}
+
+.card.requested {
+  border-left: 6px solid #f59e0b; 
+}
+
+.card.assigned {
+  border-left: 6px solid #0ea5e9;
+}
+
+.card.progress {
+  border-left: 6px solid #8b5cf6; 
+}
+
+.card.completed {
+  border-left: 6px solid #22c55e; 
+}
+
+.card.closed {
+  border-left: 6px solid #64748b; 
+}
+
+.card.cancelled {
+  border-left: 6px solid #ef4444; 
+}

@@ -1,0 +1,101 @@
+h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* FETCH CARD */
+.fetch-card {
+  background:rgb(248, 187, 187);;
+  padding: 16px;
+  border-radius: 10px;
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+.fetch-card h3 {
+  margin-bottom: 10px;
+}
+
+.fetch-row {
+  display: flex;
+  gap: 10px;
+}
+
+.fetch-row input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+}
+
+.fetch-row button {
+  padding: 8px 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* LOADING */
+.loading {
+  margin-top: 10px;
+  color: #6b7280;
+}
+
+/* INVOICE CARD */
+.invoice-card {
+  background: rgb(248, 187, 187);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 520px;
+  margin-top: 20px;
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* STATUS BADGES */
+.status {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.status.paid {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status.verify {
+  background: #fef9c3;
+  color: #92400e;
+}
+
+/* BODY */
+.invoice-body p {
+  margin: 6px 0;
+}
+
+/* PAY BUTTON */
+.pay-btn {
+  margin-top: 16px;
+  padding: 10px;
+  width: 100%;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}

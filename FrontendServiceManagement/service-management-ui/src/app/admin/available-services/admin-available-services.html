@@ -1,0 +1,126 @@
+<h2>Available Services</h2>
+
+<!-- POPUP -->
+<div class="modal" *ngIf="showModal">
+  <div class="modal-box">
+    {{ popupMessage }}
+  </div>
+</div>
+
+<div class="toolbar">
+
+  <!-- SEARCH -->
+  <input
+    class="search"
+    type="text"
+    placeholder="Search services..."
+    [(ngModel)]="search"
+    (input)="filter()"
+  />
+
+  <!-- CREATE FORM -->
+  <form (ngSubmit)="create()" class="form">
+    <input
+      placeholder="Service Name"
+      [(ngModel)]="form.name"
+      name="name"
+      required
+    />
+
+    <input
+      placeholder="Description"
+      [(ngModel)]="form.description"
+      name="description"
+    />
+
+    <input
+      type="number"
+      placeholder="Charge"
+      [(ngModel)]="form.serviceCharge"
+      name="charge"
+      required
+    />
+
+    <select [(ngModel)]="form.serviceCategoryId" name="category" required>
+      <option value="0">Select Category</option>
+      <option *ngFor="let c of categories" [value]="c.serviceCategoryId">
+        {{ c.name }}
+      </option>
+    </select>
+
+    <button type="submit">Add</button>
+  </form>
+</div>
+
+<!-- TABLE -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Charge</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let s of filteredServices">
+
+      <td>
+        <input *ngIf="editingId === s.serviceId" [(ngModel)]="s.name" />
+        <span *ngIf="editingId !== s.serviceId">{{ s.name }}</span>
+      </td>
+
+      <td>
+        <input *ngIf="editingId === s.serviceId" [(ngModel)]="s.description" />
+        <span *ngIf="editingId !== s.serviceId">{{ s.description }}</span>
+      </td>
+
+      <td>
+        <input
+          *ngIf="editingId === s.serviceId"
+          type="number"
+          [(ngModel)]="s.serviceCharge"
+        />
+        <span *ngIf="editingId !== s.serviceId">
+          ₹{{ s.serviceCharge }}
+        </span>
+      </td>
+
+      <td>
+        <select
+          *ngIf="editingId === s.serviceId"
+          [(ngModel)]="s.serviceCategoryId"
+        >
+          <option *ngFor="let c of categories" [value]="c.serviceCategoryId">
+            {{ c.name }}
+          </option>
+        </select>
+
+        <span *ngIf="editingId !== s.serviceId">
+          {{ s.categoryName }}
+        </span>
+      </td>
+
+      <td>
+        <button *ngIf="editingId !== s.serviceId" (click)="startEdit(s)">
+          Edit
+        </button>
+
+        <button *ngIf="editingId === s.serviceId" (click)="update(s)">
+          Save
+        </button>
+
+        <button *ngIf="editingId === s.serviceId" (click)="cancelEdit()">
+          Cancel
+        </button>
+
+        <button class="danger" (click)="delete(s.serviceId)">
+          Delete
+        </button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

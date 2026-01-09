@@ -1,0 +1,88 @@
+.billing-container {
+  padding: 24px 32px;
+  background: #f6f8fb;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.loading {
+  color: #6b7280;
+}
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  border-collapse: collapse;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  background: #f3f4f6;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+td {
+  padding: 14px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== Status Badges ===== */
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.pendingverification {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.paid {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* ===== Buttons ===== */
+.approve-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.approve-btn:hover {
+  background: #4338ca;
+}
+
+.done {
+  color: #16a34a;
+  font-weight: 600;
+}

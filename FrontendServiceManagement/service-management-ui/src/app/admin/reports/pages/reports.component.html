@@ -1,0 +1,67 @@
+<div class="reports-container">
+
+  <h2>Admin Reports</h2>
+
+  <div *ngIf="loading" class="loading">Loading reports...</div>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div class="grid" *ngIf="!loading && !error">
+
+    <!-- Avg Resolution -->
+    <div class="card highlight">
+      <h3>Avg Resolution Time</h3>
+      <p>{{ avgResolutionTime }} hours</p>
+    </div>
+
+    <div></div>
+
+    <!-- Requests by Category -->
+    <div class="card">
+      <h3>Requests by Category</h3>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Count</th>
+        </tr>
+        <tr *ngFor="let c of categoryReports">
+          <td>{{ c.categoryName }}</td>
+          <td>{{ c.count }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Monthly Revenue -->
+    <div class="card">
+      <h3>Monthly Revenue</h3>
+      <table>
+        <tr>
+          <th>Month</th>
+          <th>Total Revenue</th>
+        </tr>
+        <tr *ngFor="let r of monthlyRevenue">
+          <td>{{ r.month }}/{{ r.year }}</td>
+          <td>&#8377; {{ r.totalRevenue }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Technician Workload -->
+    <div class="card full">
+      <h3>Technician Workload</h3>
+      <table>
+        <tr>
+          <th>Technician</th>
+          <th>Assigned</th>
+          <th>Completed</th>
+        </tr>
+        <tr *ngFor="let t of technicianWorkload">
+          <td>{{ t.technicianName }}</td>
+          <td>{{ t.assignedRequests }}</td>
+          <td>{{ t.completedRequests }}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>

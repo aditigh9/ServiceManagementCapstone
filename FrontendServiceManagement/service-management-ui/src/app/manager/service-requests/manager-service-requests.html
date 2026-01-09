@@ -1,0 +1,66 @@
+<h2>Service Requests</h2>
+
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-box">
+    <p>{{ popupMessage }}</p>
+    <button (click)="closeModal()">OK</button>
+  </div>
+</div>
+
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="!loading && requests.length">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Service</th>
+      <th>Customer</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Schedule</th>
+      <th>Technician</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let r of requests">
+      <td>{{ r.serviceRequestId }}</td>
+      <td>{{ r.serviceName }}</td>
+      <td>{{ r.customerName }}</td>
+      <td>{{ r.status }}</td>
+
+      <td>
+        <select [(ngModel)]="r.priority">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </td>
+
+      <td>
+        <input type="datetime-local" [(ngModel)]="r.scheduledAt" />
+      </td>
+
+      <td>
+        <select #tech>
+          <option *ngFor="let t of technicians" [value]="t.technicianId">
+            {{ t.name }}
+          </option>
+        </select>
+        <button (click)="assign(r.serviceRequestId, +tech.value)">
+          Assign
+        </button>
+      </td>
+
+      <td>
+        <button (click)="setPriority(r)">Save</button>
+        <button (click)="reschedule(r)">Reschedule</button>
+        <button (click)="close(r)" class="danger">Close</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!loading && !requests.length">No requests found.</p>

@@ -1,0 +1,43 @@
+<mat-card class="admin-card">
+  <mat-card-title>Service Requests</mat-card-title>
+
+  <ng-container *ngIf="serviceRequests$ | async as requests; else loading">
+    <table class="admin-table" *ngIf="requests.length > 0; else empty">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Service</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let r of requests">
+          <td>{{ r.serviceRequestId }}</td>
+          <td class="service-name">{{ r.serviceName }}</td>
+          <td>{{ r.customerName }}</td>
+          <td>
+            <span class="status" [ngClass]="r.status.toLowerCase()">
+              {{ r.status }}
+            </span>
+          </td>
+          <td>
+            <span class="priority" [ngClass]="r.priority.toLowerCase()">
+              {{ r.priority }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-template #loading>
+    <p>Loading service requests...</p>
+  </ng-template>
+
+  <ng-template #empty>
+    <p>No service requests found.</p>
+  </ng-template>
+</mat-card>

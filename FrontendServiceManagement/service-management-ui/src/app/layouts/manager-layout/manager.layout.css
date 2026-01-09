@@ -1,0 +1,73 @@
+/* Root layout */
+.manager-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+/* Sidebar title */
+.sidebar h2 {
+  margin: 0 0 24px 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Navigation */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Active / Hover */
+.sidebar nav a.active,
+.sidebar nav a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.logout {
+  margin-top: auto;
+  margin-bottom: 24px;   
+  padding: 10px;
+  background: #ef4444;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.logout:hover {
+  background: #dc2626;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+  background: #f8fafc;
+}

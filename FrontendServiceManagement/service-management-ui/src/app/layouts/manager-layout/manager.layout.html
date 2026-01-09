@@ -1,0 +1,35 @@
+<div class="manager-layout">
+
+  <aside class="sidebar">
+    <h2>Service Manager</h2>
+
+    <nav>
+      <a
+        routerLink="/manager/dashboard"
+        routerLinkActive="active"
+      >
+        Dashboard
+      </a>
+
+      <a
+        routerLink="/manager/service-requests"
+        routerLinkActive="active"
+      >
+        Service Requests
+      </a>
+
+      <a
+        routerLink="/manager/reports"
+        routerLinkActive="active"
+      >
+        Reports
+      </a>
+    </nav>
+
+    <button class="logout" (click)="logout()">Logout</button>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,36 @@
+<h1>Hi, Manager</h1>
+
+<p class="subtitle">
+  Overview of service request status
+</p>
+
+<div class="stats">
+  <div class="card requested">
+    <h3>Requested</h3>
+    <span>{{ requested }}</span>
+  </div>
+
+  <div class="card assigned">
+    <h3>Assigned</h3>
+    <span>{{ assigned }}</span>
+  </div>
+
+  <div class="card completed">
+    <h3>Completed</h3>
+    <span>{{ completed }}</span>
+  </div>
+
+  <div class="card closed">
+    <h3>Closed</h3>
+    <span>{{ closed }}</span>
+  </div>
+
+  <div class="card cancelled">
+    <h3>Cancelled</h3>
+    <span>{{ cancelled }}</span>
+  </div>
+</div>
+
+<div style="margin-top: 40px;">
+  <canvas id="requestsChart"></canvas>
+</div>

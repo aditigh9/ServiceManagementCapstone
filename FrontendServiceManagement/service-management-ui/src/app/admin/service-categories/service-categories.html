@@ -1,0 +1,82 @@
+<h2>Service Categories</h2>
+
+<div class="toolbar">
+  <input
+    type="text"
+    placeholder="Search categories..."
+    [(ngModel)]="searchTerm"
+    (input)="filterCategories()" />
+
+  <div class="add-row">
+    <input
+      type="text"
+      placeholder="Category name"
+      [(ngModel)]="newName" />
+
+    <input
+      type="text"
+      placeholder="Description"
+      [(ngModel)]="newDescription" />
+
+    <button (click)="create()">Add</button>
+  </div>
+</div>
+
+<p *ngIf="loading">Loading categories...</p>
+<p *ngIf="!loading && error">{{ error }}</p>
+<p *ngIf="!loading && filteredCategories.length === 0">
+  No categories found.
+</p>
+
+<table *ngIf="!loading && filteredCategories.length > 0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of filteredCategories">
+      <td>{{ c.serviceCategoryId }}</td>
+
+      <td *ngIf="editingId !== c.serviceCategoryId">
+        {{ c.name }}
+      </td>
+      <td *ngIf="editingId === c.serviceCategoryId">
+        <input [(ngModel)]="editName" />
+      </td>
+
+      <td *ngIf="editingId !== c.serviceCategoryId">
+        {{ c.description }}
+      </td>
+      <td *ngIf="editingId === c.serviceCategoryId">
+        <input [(ngModel)]="editDescription" />
+      </td>
+
+      <td>
+        <button *ngIf="editingId !== c.serviceCategoryId"
+                (click)="startEdit(c)">
+          Edit
+        </button>
+
+        <button *ngIf="editingId === c.serviceCategoryId"
+                (click)="saveEdit(c.serviceCategoryId)">
+          Save
+        </button>
+
+        <button *ngIf="editingId === c.serviceCategoryId"
+                (click)="cancelEdit()">
+          Cancel
+        </button>
+
+        <button class="danger"
+                (click)="delete(c.serviceCategoryId)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,34 @@
+<div class="billing-container">
+
+  <h2>Billing & Payments</h2>
+
+  <div *ngIf="loading">Loading invoices...</div>
+
+  <table *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Invoice ID</th>
+        <th>Request ID</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Generated</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let invoice of invoices">
+        <td>#{{ invoice.invoiceId }}</td>
+        <td>{{ invoice.requestId }}</td>
+        <td>₹ {{ invoice.amount }}</td>
+        <td>
+          <span class="status" [ngClass]="invoice.paymentStatus.toLowerCase()">
+            {{ invoice.paymentStatus }}
+          </span>
+        </td>
+
+        <td>{{ invoice.generatedDate | date:'mediumDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

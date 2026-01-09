@@ -1,0 +1,122 @@
+h2 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.toolbar input[type="text"],
+.toolbar input[type="number"],
+.toolbar select {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.search {
+  max-width: 320px;
+}
+
+/* Create row */
+.form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.form input,
+.form select {
+  height: 40px;
+  box-sizing: border-box;
+}
+
+
+.form button {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+table input,
+table select {
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Action buttons */
+button {
+  margin-right: 6px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e5e7eb;
+}
+
+button.danger {
+  background: #ef4444;
+  color: white;
+  border: none;
+}
+
+button.danger:hover {
+  background: #dc2626;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px 28px;
+  border-radius: 8px;
+  min-width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}

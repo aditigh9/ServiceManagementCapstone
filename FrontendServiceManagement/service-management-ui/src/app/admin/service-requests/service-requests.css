@@ -1,0 +1,77 @@
+.admin-card {
+  padding: 24px;
+  margin: 8px 20px 20px 20px;
+  border-radius: 14px;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  background: #fafafa;
+}
+
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.service-name {
+  font-weight: 500;
+}
+
+.status,
+.priority {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.assigned {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.status.pending,
+.status.requested {
+  background: #fff8e1;
+  color: #f9a825;
+}
+
+.status.cancelled {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status.inprogress {
+  background: #ede7f6;
+  color: #5e35b1;
+}
+
+.priority.high {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.priority.medium {
+  background: #fff8e1;
+  color: #f57f17;
+}
+
+.priority.low {
+  background: #e8f5e9;
+  color: #2e7d32;
+}

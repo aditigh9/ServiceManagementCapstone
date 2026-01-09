@@ -1,0 +1,41 @@
+<div class="register-container">
+    <h2>Create Account</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullName" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role">
+                <mat-option value="Customer">Customer</mat-option>
+                <mat-option value="Admin">Admin</mat-option>
+                <mat-option value="Technician">Technician</mat-option>
+                <mat-option value="ServiceManager">Service Manager</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+            {{ loading ? 'Registering...' : 'Register' }}
+        </button>
+    </form>
+
+    <p class="link">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+    </p>
+</div>

@@ -1,0 +1,29 @@
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Admin Panel</h2>
+
+    <nav>
+      <a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/admin/service-requests" routerLinkActive="active">Service Requests</a>
+      <a routerLink="/admin/technicians" routerLinkActive="active">Technicians</a>
+      <a routerLink="/admin/service-categories" routerLinkActive="active">Service Categories</a>
+      <a routerLink="/admin/available-services" routerLinkActive="active">Available Services</a>
+      <a routerLink="/admin/reports" routerLinkActive="active">Reports</a>
+      <a routerLink="/admin/billing" routerLinkActive="active">Billing</a>
+
+      <div class="divider"></div>
+
+      <a class="disabled">Analytics</a>
+      <a class="disabled">Customer Feedbacks</a>
+      <a class="disabled">Audit Logs</a>
+      <a class="disabled">Settings</a>
+    </nav>
+
+
+    <button class="logout" (click)="logout()">Logout</button>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,37 @@
+<h2>Technicians</h2>
+
+<div *ngIf="loading">Loading technicians...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="!loading && technicians.length">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>UserId</th>
+      <th>Active</th>
+      <th>Available</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let t of technicians">
+      <td>{{ t.technicianId }}</td>
+      <td>{{ t.name }}</td>
+      <td>{{ t.userId }}</td>
+      <td>{{ t.isActive ? 'Yes' : 'No' }}</td>
+      <td>{{ t.isAvailable ? 'Yes' : 'No' }}</td>
+
+      <td>
+        <button (click)="toggle(t)">
+          {{ t.isActive ? 'Deactivate' : 'Activate' }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loading && !technicians.length">
+  No technicians found.
+</div>

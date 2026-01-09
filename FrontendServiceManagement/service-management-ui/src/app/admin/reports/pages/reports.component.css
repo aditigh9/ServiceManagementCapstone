@@ -1,0 +1,59 @@
+.reports-container {
+  padding-top: 12px;  
+}
+
+.reports-container h2 {
+  margin-top: 0;       
+  margin-bottom: 16px; 
+}
+
+.reports-container {
+  padding: 24px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.loading {
+  font-size: 16px;
+  color: #666;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #edf4f7;
+  border: 1px solid #daf2fe;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.card.full {
+  grid-column: span 2;
+}
+
+.card.highlight {
+  background: #f5f8ff;
+  border-left: 4px solid #3f51b5;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: 600;
+}

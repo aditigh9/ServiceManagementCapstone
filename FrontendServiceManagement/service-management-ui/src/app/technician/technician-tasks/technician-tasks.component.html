@@ -1,0 +1,43 @@
+<h2>My Assigned Tasks</h2>
+
+<div class="modal-overlay" *ngIf="showModal">
+  <div class="modal-box">
+    <p>{{ popupMessage }}</p>
+    <button (click)="closeModal()">OK</button>
+  </div>
+</div>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Customer</th>
+        <th>Priority</th>
+        <th>Scheduled At</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let t of tasks">
+        <td>{{ t.serviceName }}</td>
+        <td>{{ t.customerName }}</td>
+        <td>{{ t.priority || '-' }}</td>
+        <td>
+          {{ t.scheduledAt ? (t.scheduledAt | date:'short') : 'Not Scheduled' }}
+        </td>
+        <td>
+          <select
+            [ngModel]="t.status"
+            (ngModelChange)="onStatusChange(t, $event)"
+          >
+            <option *ngFor="let s of statuses" [value]="s.value">
+              {{ s.label }}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,33 @@
+<h2>Payments</h2>
+
+<div class="fetch-card">
+  <h3>Fetch Invoice</h3>
+
+  <div class="fetch-row">
+    <input type="number" placeholder="Service Request ID" [(ngModel)]="requestId" />
+    <button (click)="load()">Fetch</button>
+  </div>
+</div>
+
+<p *ngIf="loading">Fetching invoice...</p>
+
+<div *ngIf="invoice" class="invoice-card">
+
+  <div class="invoice-header">
+    <h3>Invoice #{{ invoice.invoiceId }}</h3>
+
+    <span class="status">
+      <ng-container *ngIf="invoice.paymentStatus === 'Pending'">⏳ Pending</ng-container>
+      <ng-container *ngIf="invoice.paymentStatus === 'Paid'">✅ Paid</ng-container>
+    </span>
+  </div>
+
+  <div class="invoice-body">
+    <p><strong>Amount:</strong> ₹ {{ invoice.amount }}</p>
+    <p><strong>Generated:</strong> {{ invoice.generatedDate | date:'medium' }}</p>
+  </div>
+
+  <button *ngIf="invoice.paymentStatus === 'Pending'" (click)="pay()">
+    Pay Now
+  </button>
+</div>

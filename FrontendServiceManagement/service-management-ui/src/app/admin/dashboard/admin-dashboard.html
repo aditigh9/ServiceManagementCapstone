@@ -1,0 +1,39 @@
+<h1>Hi, Admin</h1>
+<p class="subtitle">Overview of all service requests</p>
+
+<div class="stats">
+  <div class="card total">
+    <h3>Total Requests</h3>
+    <span>{{ stats.total }}</span>
+  </div>
+
+  <div class="card requested">
+    <h3>Requested</h3>
+    <span>{{ stats.requested }}</span>
+  </div>
+
+  <div class="card assigned">
+    <h3>Assigned</h3>
+    <span>{{ stats.assigned }}</span>
+  </div>
+
+  <div class="card progress">
+    <h3>In Progress</h3>
+    <span>{{ stats.inProgress }}</span>
+  </div>
+
+  <div class="card completed">
+    <h3>Completed</h3>
+    <span>{{ stats.completed }}</span>
+  </div>
+
+  <div class="card closed">
+    <h3>Closed</h3>
+    <span>{{ stats.closed }}</span>
+  </div>
+
+  <div class="card cancelled">
+    <h3>Cancelled</h3>
+    <span>{{ stats.cancelled }}</span>
+  </div>
+</div>

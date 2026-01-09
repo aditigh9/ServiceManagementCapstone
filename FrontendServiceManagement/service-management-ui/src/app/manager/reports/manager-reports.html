@@ -1,0 +1,59 @@
+<h2>Service Manager Reports</h2>
+
+<div class="grid">
+
+  <div class="card">
+    <h3>Requests by Status</h3>
+    <canvas
+      baseChart
+      [data]="statusChartData"
+      [options]="statusChartOptions"
+      chartType="doughnut">
+    </canvas>
+  </div>
+
+  <div class="card">
+    <h3>Requests by Category</h3>
+    <canvas
+      baseChart
+      [data]="categoryChartData"
+      [options]="categoryChartOptions"
+      chartType="bar">
+    </canvas>
+  </div>
+
+  <!-- TECHNICIAN WORKLOAD -->
+  <div class="card">
+    <h3>Technician Workload</h3>
+    <div *ngFor="let t of technicianWorkload" class="bar">
+      <span>{{ t.technicianName }}</span>
+      <div class="track">
+        <div class="fill green"
+          [style.width.%]="(t.assignedRequests / max(technicianWorkload,'assignedRequests')) * 100">
+        </div>
+      </div>
+      <small>{{ t.assignedRequests }}</small>
+    </div>
+  </div>
+
+  <!-- MONTHLY REVENUE -->
+  <div class="card">
+    <h3>Monthly Revenue</h3>
+    <div *ngFor="let r of monthlyRevenue" class="bar">
+      <span>{{ r.month }}/{{ r.year }}</span>
+      <div class="track">
+        <div class="fill purple"
+          [style.width.%]="(r.totalRevenue / max(monthlyRevenue,'totalRevenue')) * 100">
+        </div>
+      </div>
+      <small>₹ {{ r.totalRevenue }}</small>
+    </div>
+  </div>
+
+  <!-- AVG RESOLUTION TIME -->
+  <div class="card full">
+    <h3>Average Resolution Time</h3>
+    <p class="avg">{{ avgResolutionTime }} hours</p>
+  </div>
+
+</div>

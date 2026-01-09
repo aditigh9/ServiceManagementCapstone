@@ -1,0 +1,17 @@
+<h2>Available Services</h2>
+
+<!-- SEARCH BAR -->
+<input
+  class="search"
+  placeholder="Search services..."
+  [(ngModel)]="search"
+  (input)="filter()"
+/>
+
+<!-- SERVICES -->
+<div class="card" *ngFor="let s of filteredServices">
+  <h3>{{ s.name }}</h3>
+  <p>{{ s.description }}</p>
+  <p>₹ {{ s.serviceCharge }}</p>
+  <button (click)="request(s.serviceId)">Request</button>
+</div>

@@ -1,0 +1,38 @@
+<h2>My Service Requests</h2>
+
+<table *ngIf="requests.length; else empty">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Service</th>
+      <th>Status</th>
+      <th>Requested At</th>
+      <th>Scheduled At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let r of requests">
+      <td>#{{ r.serviceRequestId }}</td>
+      <td>{{ r.serviceName }}</td>
+      <td>
+        <span class="status" [ngClass]="r.status.toLowerCase()">
+          {{ r.status }}
+        </span>
+      </td>
+      <td>{{ r.requestedAt | date:'medium' }}</td>
+      <td>{{ r.scheduledAt ? (r.scheduledAt | date:'medium') : '—' }}</td>
+      <td>
+        <button *ngIf="r.status === 'Requested' || r.status === 'Assigned'" (click)="cancelRequest(r.serviceRequestId)">
+          Cancel
+        </button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #empty>
+  <p>No service requests found.</p>
+</ng-template>
